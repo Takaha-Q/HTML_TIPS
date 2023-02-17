@@ -8,7 +8,7 @@ head
 <meta content="text/html" charset="utf-8" http-equiv="Content-Type" />
 
 <!-- 基準URI -->
-<base href="https://elephantech-html-tips-etc.on.drv.tw/HTML_TIPS/">
+<base href="G:\マイドライブ\5.TIPS&HowTo\HTML_TIPS\">
 
 <!-- スタイルシート -->
 <link rel="stylesheet" href="_Assets/CSS/Sytle001.css" type="text/css">
@@ -127,8 +127,8 @@ internal と public は、オブジェクトへのアクセスを同一のアセ
 クラス、レコード、およびインタフェースのメンバにはすべてのアクセス修飾子を適用できる。<br>
 構造体メンバには protected 、protected internal 、private protected を適用できない。これは、構造体が継承をサポートしていないためである。<br>
 ここで原則として、メンバのアクセシビリティはそれを含む型のアクセシビリティよりも緩くなってはならない。<br>
-(例 : クラスのアクセシビリティが internal 、メンバのアクセシビリティが public )<br>
-但しインタフェースメソッドの実装(オーバーライド)は例外で、public で宣言されている場合は public とする必要がある。
+(例 : クラスのアクセシビリティが internal 、メンバのアクセシビリティが public はエラーとなる。)<br>
+但しインタフェースメソッドの実装(オーバーライド)は例外で、public で宣言されている場合は public とする必要がある。<br>
 
 <img src="_Img/CSharp/Accessibility/01.png" alt=""><br>
 
