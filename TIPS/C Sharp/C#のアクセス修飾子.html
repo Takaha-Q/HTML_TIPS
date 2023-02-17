@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+
+<html lang="ja">
+<!-- --------------------------------------
+head
+--------------------------------------- -->
+<head>
+<meta content="text/html" charset="utf-8" http-equiv="Content-Type" />
+
+<!-- 基準URI -->
+<base href="https://elephantech-html-tips-etc.on.drv.tw/HTML_TIPS/">
+
+<!-- スタイルシート -->
+<link rel="stylesheet" href="_Assets/CSS/Sytle001.css" type="text/css">
+
+<!-- スクリプト -->
+<!-- タイトル表示 -->
+<script src="_Assets/MakeTitle.js" type="text/javascript"></script>
+<!-- 目次表示 -->
+<script src="_Assets/MakeToc_L.js" type="text/javascript"></script>
+
+
+
+</head>
+
+<!-- --------------------------------------
+body
+--------------------------------------- -->
+<body>
+
+<!-- ページタイトル(ページ内表示) -->
+<span id="title"></span>
+
+<!-- リンク(ホームに戻る) -->
+<a href="index.html">ホームに戻る</a><br>
+
+<!-- 出典・関連ページ -->
+<h5>出典 :</h5>
+<a href="https://learn.microsoft.com/ja-jp/dotnet/csharp/programming-guide/classes-and-structs/access-modifiers">アクセス修飾子 - C# プログラミング ガイド | Microsoft Learn</a><br>
+<a href="https://learn.microsoft.com/ja-jp/dotnet/csharp/language-reference/keywords/access-modifiers">アクセス修飾子 - C# リファレンス | Microsoft Learn</a><br>
+<a href="https://learn.microsoft.com/ja-jp/dotnet/csharp/language-reference/keywords/accessibility-levels">アクセシビリティ レベル - C# リファレンス | Microsoft Learn</a><br>
+
+<!-- 目次 -->
+<h5>目次 :</h5>
+<div id="toc"></div>
+
+<hr>
+
+<!-- 本文ここから -->
+
+<h2>アクセス修飾子とアクセシビリティ</h2>
+型と型メンバのアクセス可否(アクセシビリティ)を決定するには、アクセス修飾子を用いる。
+
+<ul>
+    <li><b>public</b> : 同じアセンブリ内の他のコードや、そのアセンブリを参照する別のアセンブリ内の任意のコードからアクセス可能。</li>
+    <li><b>private</b> : 同一クラス(または構造体)内のコードからのみアクセス可能。</li>
+    <li><b>protected</b> : 同一クラス、またはそのクラスから派生したクラス内のコードからのみアクセス可能。</li>
+    <li><b>internal</b> : 同じアセンブリ内の任意のコードからアクセス可能。</li>
+    <li><b>protected internal</b> : protected に加え、同一アセンブリ内の任意のコードからアクセス可能。</li>
+    <li><b>private protected</b> : private に加え、同一アセンブリ内の派生クラスからのみアクセス可能。</li>
+</ul>
+
+「<b>アセンブリ</b>」は、ひとつのプロジェクトをビルドすることで作成される、DLL または EXE を意味する。<br>
+internal と public は、オブジェクトへのアクセスを同一のアセンブリに限定するか、アセンブリを跨ぐことを可能とするかが異なる。
+
+<table>
+  <tr class="row1">
+    <td class="col1" colspan="2"></td>
+    <td width="135">public</td>
+    <td width="135">protected internal</td>
+    <td width="135">protected</td>
+    <td width="135">internal</td>
+    <td width="135">private protected</td>
+    <td width="135">private</td>
+  </tr>
+  <tr>
+    <td class="col1" colspan="2">自身のクラス内</td>
+    <td class="bg_lg center">可</td>
+    <td class="bg_lg center">可</td>
+    <td class="bg_lg center">可</td>
+    <td class="bg_lg center">可</td>
+    <td class="bg_lg center">可</td>
+    <td class="bg_lg center">可</td>
+  </tr>
+  <tr>
+    <th rowspan="2">同一アセンブリ</th>
+    <td class="col1">派生クラス</td>
+    <td class="bg_lg center">可</td>
+    <td class="bg_lg center">可</td>
+    <td class="bg_lg center">可</td>
+    <td class="bg_lg center">可</td>
+    <td class="bg_lg center">可</td>
+    <td class="bg_lr center">不可</td>
+  </tr>
+  <tr>
+    <td class="col1">非派生クラス</td>
+    <td class="bg_lg center">可</td>
+    <td class="bg_lg center">可</td>
+    <td class="bg_lr center">不可</td>
+    <td class="bg_lg center">可</td>
+    <td class="bg_lr center">不可</td>
+    <td class="bg_lr center">不可</td>
+  </tr>
+  <tr>
+    <th rowspan="2">異なるアセンブリ</th>
+    <td class="col1">派生クラス</td>
+    <td class="bg_lg center">可</td>
+    <td class="bg_lg center">可</td>
+    <td class="bg_lg center">可</td>
+    <td class="bg_lr center">不可</td>
+    <td class="bg_lr center">不可</td>
+    <td class="bg_lr center">不可</td>
+  </tr>
+  <tr>
+    <td class="col1">非派生クラス</td>
+    <td class="bg_lg center">可</td>
+    <td class="bg_lr center">不可</td>
+    <td class="bg_lr center">不可</td>
+    <td class="bg_lr center">不可</td>
+    <td class="bg_lr center">不可</td>
+    <td class="bg_lr center">不可</td>
+  </tr>
+</table>
+
+<h2>アクセシビリティの指定可否</h2>
+名前空間に直接宣言される(他のクラスや構造体の入れ子でない)クラス、レコード、構造体、およびインタフェースには、public または internal を指定できる。既定値は internal 。<br>
+クラス、レコード、およびインタフェースのメンバにはすべてのアクセス修飾子を適用できる。<br>
+構造体メンバには protected 、protected internal 、private protected を適用できない。これは、構造体が継承をサポートしていないためである。<br>
+ここで原則として、メンバのアクセシビリティはそれを含む型のアクセシビリティよりも緩くなってはならない。<br>
+(例 : クラスのアクセシビリティが internal 、メンバのアクセシビリティが public )<br>
+但しインタフェースメソッドの実装(オーバーライド)は例外で、public で宣言されている場合は public とする必要がある。
+
+<img src="_Img/CSharp/Accessibility/01.png" alt=""><br>
+
+
+
+</body>
+</html>
+
+
