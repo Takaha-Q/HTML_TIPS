@@ -365,12 +365,12 @@ PublishProfile ではなく <b>PublishProfileFullPath</b> プロパティを使�
   <tr>
     <th>--self-contained</th>
     <td class="col1">--sc</td>
-    <td>true<br>false</td>
+    <td>true (デフォルト)<br>false</td>
     <td>アプリケーションを自己完結バイナリとしてビルドする<br>
         (バイナリに.NETランタイムが含まれるため、ランタイムを別途ターゲットコンピュータにインストールする必要が無い)</td>
     <td class="center bg_lg">○</td>
     <td class="center bg_lg">○</td>
-    <td>.NET 6 SDK 以降で使用可能<br>true 指定時、またはパラメータ省略時は --no-self-contained と相反<br>false 指定時は --no-self-contained と等価</td>
+    <td>.NET 6 SDK 以降で使用可能<br>true (省略時含む) : 自己完結( --no-self-contained と相反)<br>false : 自己完結でない( --no-self-contained と等価)</td>
   </tr>
   <tr>
     <th>--no-self-contained</th>
