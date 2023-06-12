@@ -52,6 +52,9 @@ https://www.crie.co.jp/chokotech/detail/90/
 ">テーブルを使うメリット ―抽出したデータの計算―｜クリエアナブキのちょこテク</a>
 <br>
 
+<h5>関連 :</h5>
+<a href="TIPS/Microsoft Excel/入力規則.html">入力規則</a>
+
 <!-- 目次 -->
 <h5>目次 :</h5>
 <div id="toc"></div>
@@ -147,6 +150,12 @@ https://www.crie.co.jp/chokotech/detail/90/
 但し、<b>「同じ行の列範囲(m列からn列まで)」を参照する場合は例外的に、テーブル名を省略できない</b>。<br>
 (大括弧[]の書式にも注意)<br>
 <img src="_Img/MS Excel/table/12.png"><br>
+
+<h3>応用 : テーブルの列を入力候補として用いる(入力規則)</h3>
+テーブルの列を入力規則のリストとして用いる場合は、<b>INDIRECT()</b> 関数を用いる。<br>
+その際、テーブル名および列名は二重引用符で囲む必要がある。<br>
+<img src="_Img/MS Excel/table/13.png"><br>
+入力規則の詳細は、<a href="TIPS/Microsoft Excel/入力規則.html">ここ</a>を参照。
 
 <h2>テーブルとVBA</h2>
 VBAからもテーブル名と列名、(テーブル中の)行番号を指定して、抽象度を保ったままアクセスできるため相性が良い。<br>
